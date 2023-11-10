@@ -1,8 +1,8 @@
-password = input("giv password: ")
+password = input("give password: ")
 crack = ""
 count = 0
 
-def cracker(size, attempt= ""):
+def bruteForce(size, attempt= ""):
     global count
     if size == 0:
         print(attempt)
@@ -15,7 +15,7 @@ def cracker(size, attempt= ""):
         for x in range(32, 127):
             count += 1
             newTry = attempt + chr(x)
-            cracker(size - 1, newTry)
+            bruteForce(size - 1, newTry)
 
 for i in range(1, 99):
-    cracker(i)
+    bruteForce(i)
