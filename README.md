@@ -11,9 +11,6 @@ Group: Minasha Gunarathna and Chris Wang
   - [Dictionary Attack](#dictionary-attack)
   - [MD5 Hash Cracking](#md5-hash-cracking)
 - [How to Run](#how-to-run)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Usage
 
