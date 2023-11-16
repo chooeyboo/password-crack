@@ -1,3 +1,5 @@
+import hashlib
+
 password = input("Give password: ")
 crack = ""
 count = 0
@@ -6,7 +8,8 @@ count = 0
 def bruteForce(size, attempt=""):
     global count
     if size == 0:
-        if attempt == password:
+        hashed_attempt = hashlib.md5(attempt.encode()).hexdigest()
+        if hashed_attempt == password:
             crack = attempt
             print("Cracked password: " + crack)
             print(count, " tries")
@@ -25,14 +28,24 @@ def dictionaryAttack(dictionary_file):
 
     for word in words:
         count += 1
-        if word == password:
+        hashed_word = hashlib.md5(word.encode()).hexdigest()
+        if hashed_word == password:
             crack = word
             print("Cracked password: " + crack)
             print(count, " tries")
             exit()
 
+# Function to crack MD5 hash
+def crackMD5Hash(md5_hash):
+    global count
+    for i in range(1, 99):
+        bruteForce(i)
+        count = 0  # Reset count for the dictionary attack
+        dictionaryAttack("dictionary.txt")
+        count = 0  # Reset count for the next iteration
+
 # Prompt user for the attack method
-method = input("Select attack method (1 for brute force, 2 for dictionary): ")
+method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash): ")
 
 # Perform the selected attack method
 if method == "1":
@@ -42,5 +55,9 @@ if method == "1":
 elif method == "2":
     # Dictionary attack
     dictionaryAttack("dictionary.txt")
+elif method == "3":
+    # MD5 hash cracking
+    md5_hash = ""
+    crackMD5Hash(md5_hash)
 else:
-    print("Invalid choice. Please enter 1 for brute force or 2 for dictionary.")
+    print("Invalid choice. Please enter 1 for brute force, 2 for dictionary, or 3 for MD5 hash.")
