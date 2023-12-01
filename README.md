@@ -12,7 +12,7 @@ The brute force attack generates all possible combinations of characters to gues
 
 ### Dictionary Attack
 
-The dictionary attack uses a list of words from a specified file (`dictionary1.txt, dictionary2.txt, dictionary3.txt`) to guess the password.
+The dictionary attack uses a list of words from a specified file (`dictionary1.txt, dictionary2.txt, dictionary3.txt`) to guess the password. This is generally the fastest way to crack a password that is long (greater than 4 characters), since the script can iterate through the dictionary relatively quickly.
 
 ### MD5 Hash Cracking
 
