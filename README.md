@@ -16,11 +16,11 @@ The dictionary attack uses a list of words from a specified file (`dictionary.tx
 
 ### MD5 Hash Cracking
 
-The MD5 hash cracking option allows users to input an MD5 hash, and the program attempts to find the original plaintext using brute-force.
+The MD5 hash cracking option allows users to input an MD5 hash, and the program attempts to find the original plaintext using brute-force. A brute-force algorithm generates a passphrase, the passphrase is hashed with MD5, then the hash is compared to the user-entered hash.
 
 ### SHA-256 Hash Cracking
 
-The SHA-256 hash cracking option allows users to input an SHA-256 hash, and the program attempts to find the original plaintext using brute-force.
+The SHA-256 hash cracking option allows users to input an SHA-256 hash, and the program attempts to find the original plaintext using brute-force. A brute-force algorithm generates a passphrase, the passphrase is hashed with SHA-256, then the hash is compared to the user-entered hash.
 
 ## How to Run
 
