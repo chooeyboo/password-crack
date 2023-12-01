@@ -4,14 +4,6 @@ This simple Python script is a password cracking tool that allows users to guess
 
 Group: Minasha Gunarathna and Chris Wang
 
-## Table of Contents
-
-- [Usage](#usage)
-  - [Brute Force Attack](#brute-force-attack)
-  - [Dictionary Attack](#dictionary-attack)
-  - [MD5 Hash Cracking](#md5-hash-cracking)
-- [How to Run](#how-to-run)
-
 ## Usage
 
 ### Brute Force Attack
