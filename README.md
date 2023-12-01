@@ -20,7 +20,7 @@ The MD5 hash cracking option allows users to input an MD5 hash, and the program 
 
 ### SHA-256 Hash Cracking
 
-The MD5 hash cracking option allows users to input an MD5 hash, and the program attempts to find the original plaintext using brute-force.
+The SHA-256 hash cracking option allows users to input an SHA-256 hash, and the program attempts to find the original plaintext using brute-force.
 
 ## How to Run
 
