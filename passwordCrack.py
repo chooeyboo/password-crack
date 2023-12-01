@@ -57,8 +57,23 @@ def crackMD5Hash(md5_hash):
         print(count, " tries")
         exit()
 
+def bruteForceSHA256Hash(size, attempt=""):
+    global count
+    if size == 0:
+        hashed_attempt = hashlib.sha256(attempt.encode()).hexdigest()
+        if hashed_attempt == password:
+            crack = attempt
+            print("Cracked password: " + crack)
+            print(count, " tries")
+            exit()
+    else:
+        for x in range(32, 127):
+            count += 1
+            newTry = attempt + chr(x)
+            bruteForceSHA256Hash(size - 1, newTry)
+
 # Prompt user for the attack method
-method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash): ")
+method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash, 4 for SHA-256 hash): ")
 
 # Perform the selected attack method
 if method == "1":
@@ -75,5 +90,9 @@ elif method == "3":
     # MD5 hash brute-force attack
     for i in range(1, 99):
         bruteForceMD5Hash(i)
+elif method == "4":
+    # SHA-256 hash brute-force attack
+    for i in range(1, 99):
+        bruteForceSHA256Hash(i)
 else:
     print("Invalid choice. Please enter 1 for brute force, 2 for dictionary, or 3 for MD5 hash.")
