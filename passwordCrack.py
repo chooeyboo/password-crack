@@ -1,4 +1,5 @@
 import hashlib
+import bcrypt
 
 password = input("Give password: ")
 crack = ""
@@ -20,18 +21,35 @@ def bruteForce(size, attempt=""):
             bruteForce(size - 1, newTry)
 
 # Function for dictionary attack
-def dictionaryAttack(dictionary_file):
+def dictionaryAttack(dictionary_files):
     global count
-    with open(dictionary_file, 'r') as file:
-        words = file.read().splitlines()
 
-    for word in words:
-        count += 1
-        if word == password:
-            crack = word
+    for dictionary_file in dictionary_files:
+        with open(dictionary_file, 'r', encoding='latin-1') as file:
+            words = file.read().splitlines()
+
+        for word in words:
+            count += 1
+            if word == password:
+                crack = word
+                print("Cracked password: " + crack)
+                print(count, " tries")
+                exit()
+
+def bruteForceBcrypt(size, attempt=""):
+    global count
+    if size == 0:
+        hashed_attempt = bcrypt.hashpw(attempt.encode(), bcrypt.gensalt())
+        if hashed_attempt.decode() == password:
+            crack = attempt
             print("Cracked password: " + crack)
             print(count, " tries")
             exit()
+    else:
+        for x in range(32, 127):
+            count += 1
+            newTry = attempt + chr(x)
+            bruteForceBcrypt(size - 1, newTry)
 
 # Function for MD5 hash brute-force attack
 def bruteForceMD5Hash(size, attempt=""):
@@ -73,7 +91,7 @@ def bruteForceSHA256Hash(size, attempt=""):
             bruteForceSHA256Hash(size - 1, newTry)
 
 # Prompt user for the attack method
-method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash, 4 for SHA-256 hash): ")
+method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash, 4 for SHA-256 hash, 5 for Bcrypt hash): ")
 
 # Perform the selected attack method
 if method == "1":
@@ -82,8 +100,9 @@ if method == "1":
         bruteForce(i)
 elif method == "2":
     # Dictionary attack
-    dictionaryAttack("dictionary.txt")
-    print("Password not found in the dictionary. Switching to brute force attack.")
+    dictionary_files = ["dictionary1.txt", "dictionary2.txt", "dictionary3.txt"]
+    dictionaryAttack(dictionary_files)
+    print("Password not found in any of the dictionaries. Switching to brute force attack.")
     for i in range(1, 99):
         bruteForce(i)
 elif method == "3":
@@ -94,5 +113,9 @@ elif method == "4":
     # SHA-256 hash brute-force attack
     for i in range(1, 99):
         bruteForceSHA256Hash(i)
+elif method == "5":
+    # Bcrypt hash brute-force attack
+    for i in range(1, 99):
+        bruteForceBcrypt(i)
 else:
     print("Invalid choice. Please enter 1 for brute force, 2 for dictionary, or 3 for MD5 hash.")
