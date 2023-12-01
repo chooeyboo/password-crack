@@ -28,4 +28,4 @@ Download the repository, open a terminal in the directory of the downloaded repo
 
 ## Warning
 
-Since all methods except dictionary are based on brute-force, any password that is longer than 5 characters can take a long time.
+Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time.
