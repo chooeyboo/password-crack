@@ -67,14 +67,6 @@ def bruteForceMD5Hash(size, attempt=""):
             newTry = attempt + chr(x)
             bruteForceMD5Hash(size - 1, newTry)
 
-# Function for MD5 hash cracking
-def crackMD5Hash(md5_hash):
-    global count
-    if hashlib.md5(md5_hash.encode()).hexdigest() == password:
-        print("MD5 hash cracked: " + md5_hash)
-        print(count, " tries")
-        exit()
-
 def bruteForceSHA256Hash(size, attempt=""):
     global count
     if size == 0:
