@@ -33,3 +33,7 @@ The MD5 hash cracking option allows users to input an MD5 hash, and the program 
 ## How to Run
 
 Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py`.
+
+## Warning
+
+Since all methods except dictionary are based on brute-force, any password that is longer than 5 characters can take a long time.
