@@ -8,6 +8,8 @@ Group: Minasha Gunarathna and Chris Wang
 
 Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py [password or hash] [argument]`.
 
+You may need to run `pip install hashlib` or `pip install bcrypt` if these libraries are not already present on your system.
+
 Replace `[password or hash]` above with the plaintext password or MD5/SHA-256/Bcrypt hash you would like to crack.
 Then replace `[argument]` with the type of password cracking you would like the program to use. The arguments are `-p` for plaintext brute-force, `-d` for dictionary, `-m` for MD5, `-s` for SHA-256, and `-b` for Bcrypt.
 
@@ -22,6 +24,31 @@ Since all methods except dictionary are based on brute-force, any password that 
 
 - [x] (4) Able to load dataset of top 10K most common passwords
 > The files `dictionary1.txt`, `dictionary2.txt` and `dictionary3.txt` collectively contain over one million common passwords.
+
+- [x] (10) Implement brute force password cracking
+
+> This is done through the `bruteForce` function.
+- [x] (10) Implement dictionary attack password cracking
+
+> This is done through the dictionaryAttack function.
+- [x] (4) Able to run program via command line with various arguments
+
+> See above in the "How to Run" section for the command line arguments.
+- [x] (4) Able to add arguments when running program via command line
+
+> See above in the "How to Run" section for the command line arguments.
+- [x] (5) Implement MD5 password cracking
+
+> This is done through the `bruteForceMD5Hash` function.
+- [x] (5) Implement Bcrypt password cracking
+
+> This is done through the `bruteForceBcrypt` function.
+- [x] (5) Implement SHA-256 password cracking
+
+> This is done through the `bruteForceSHA256Hash` function.
+- [x] (1) README.md with dependencies and commands/arguments to run
+
+> What you're reading right now!
 
 ## How it Works
 
