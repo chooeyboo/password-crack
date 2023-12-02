@@ -13,6 +13,10 @@ Download the repository, open a terminal in the directory of the downloaded repo
 Replace `[password or hash]` above with the plaintext password or MD5/SHA-256/Bcrypt hash you would like to crack.
 Then replace `[argument]` with the type of password cracking you would like the program to use. The arguments are `-p` for plaintext brute-force, `-d` for dictionary, `-m` for MD5, `-s` for SHA-256, and `-b` for Bcrypt.
 
+For plaintext passwords, using the brute-force or dictionary attack will output the same password the user inputted along with the number of tries it took to crack the password.
+
+For MD5, SHA-256, or Bcrypt hashes, the program will take the hash and output the plaintext stored in the hash along with the number of tries it took to crack the password.
+
 ## Warning
 
 Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
