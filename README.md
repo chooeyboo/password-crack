@@ -4,23 +4,33 @@ This simple Python script is a password cracking tool that allows users to guess
 
 Group: Minasha Gunarathna and Chris Wang
 
-## Usage
+## How it Works
 
 ### Brute Force Attack
-
-The brute force attack generates all possible combinations of characters to guess the password. It starts with a minimum length and gradually increases.
+The function takes two parameters: size (the length of the password to attempt) and attempt (the current attempt at the password).
+In the base case (size == 0), it checks if the current attempt matches the provided plaintext password (password).
+If a match is found, it prints the cracked password, the number of tries, and exits the program.
+If no match is found, it recursively generates new attempts by appending characters (from ASCII 32 to 126) and continues the search.
 
 ### Dictionary Attack
-
-The dictionary attack uses a list of words from a specified file (`dictionary1.txt, dictionary2.txt, dictionary3.txt`) to guess the password. This is generally the fastest way to crack a password that is long (greater than 4 characters), since the script can iterate through the dictionary relatively quickly.
-
-### MD5 Hash Cracking
-
-The MD5 hash cracking option allows users to input an MD5 hash, and the program attempts to find the original plaintext using brute-force. A brute-force algorithm generates a passphrase, the passphrase is hashed with MD5, then the hash is compared to the user-entered hash.
+The function takes a list of dictionary_files as input, which are assumed to be text files containing a list of possible passwords (one per line).
+It iterates through each dictionary file, reading its content and splitting it into a list of words.
+It then iterates through each word in the dictionary and compares it with the provided password.
+If a match is found, it prints the cracked password, the number of tries, and exits the program.
+This is generally the fastest way to crack a password, since the script can iterate through the dictionary relatively quickly.
 
 ### SHA-256 Hash Cracking
+The function takes two parameters: size (the length of the password to attempt) and attempt (the current attempt at the password).
+In the base case (size == 0), it calculates the SHA-256 hash of the current attempt and checks if it matches the provided SHA-256 hash (password).
+If a match is found, it prints the cracked password, the number of tries, and exits the program.
+If no match is found, it recursively generates new attempts by appending characters (from ASCII 32 to 126) and continues the search.
 
-The SHA-256 hash cracking option allows users to input an SHA-256 hash, and the program attempts to find the original plaintext using brute-force. A brute-force algorithm generates a passphrase, the passphrase is hashed with SHA-256, then the hash is compared to the user-entered hash.
+### MD5 Hash Cracking
+The logic is the same as for SHA-256, but it calculates the MD5 hash instead.
+
+### Bcrypt Hash Cracking
+In this case, the Bcrypt library is used to hash the current attempt, and it checks if the hashed attempt matches the provided Bcrypt hash (password).
+Note that Bcrypt uses salts, so bcrypt.gensalt() generates a new salt for each attempt.
 
 ## How to Run
 
