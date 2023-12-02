@@ -110,4 +110,4 @@ elif method == "5":
     for i in range(1, 99):
         bruteForceBcrypt(i)
 else:
-    print("Invalid choice. Please enter 1 for brute force, 2 for dictionary, or 3 for MD5 hash.")
+    print("Invalid choice.")
