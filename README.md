@@ -6,7 +6,7 @@ Group: Minasha Gunarathna and Chris Wang
 
 ## How to Run
 
-Dependencies: You may need to run `pip install hashlib` or `pip install bcrypt` if these libraries are not already present on your system.
+Dependencies: Python 3. You may need to run `pip install hashlib` or `pip install bcrypt` if these libraries are not already present on your system.
 
 Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py [password or hash] [argument]`.
 
