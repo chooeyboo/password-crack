@@ -4,6 +4,14 @@ This simple Python script is a password cracking tool that allows users to guess
 
 Group: Minasha Gunarathna and Chris Wang
 
+## How to Run
+
+Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py`.
+
+## Warning
+
+Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
+
 ## How it Works
 
 ### Brute Force Attack
@@ -31,11 +39,3 @@ The logic is the same as for SHA-256, but it calculates the MD5 hash instead.
 ### Bcrypt Hash Cracking
 In this case, the Bcrypt library is used to hash the current attempt, and it checks if the hashed attempt matches the provided Bcrypt hash (password).
 Note that Bcrypt uses salts, so bcrypt.gensalt() generates a new salt for each attempt. This is generally very slow because of the use of salting in Bcrypt hashes.
-
-## How to Run
-
-Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py`.
-
-## Warning
-
-Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
