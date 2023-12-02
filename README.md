@@ -15,6 +15,13 @@ Then replace `[argument]` with the type of password cracking you would like the 
 
 Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
 
+## Rubric
+
+[x] (3) Regular usage of Git
+> In the top right, under the green "Code" button, click on the number of commits to the project to see regular usage of Git.
+[x] (4) Able to load dataset of top 10K most common passwords
+> The files `dictionary1.txt`, `dictionary2.txt` and `dictionary3.txt` collectively contain over one million common passwords.
+
 ## How it Works
 
 ### Brute Force Attack
