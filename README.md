@@ -1,6 +1,6 @@
 # Password Cracking Tool
 
-This simple Python script is a password cracking tool that allows users to guess passwords using brute-force and dictionary attacks. The tool can also crack MD5 and SHA-256 hashed passwords.
+This simple Python script is a password cracking tool that allows users to guess passwords using brute-force and dictionary attacks. The tool can also crack MD5, SHA-256, and Bcrypt hashed passwords.
 
 Group: Minasha Gunarathna and Chris Wang
 
@@ -28,4 +28,4 @@ Download the repository, open a terminal in the directory of the downloaded repo
 
 ## Warning
 
-Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time.
+Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
