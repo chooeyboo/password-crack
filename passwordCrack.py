@@ -1,8 +1,8 @@
+import sys
 import hashlib
 import bcrypt
 
-password = input("Enter a plaintext password, MD5 hash, SHA-256 hash, or Bcrypt hash: ")
-crack = ""
+password = ""
 count = 0
 
 # Function for brute-force attack
@@ -82,32 +82,36 @@ def bruteForceSHA256Hash(size, attempt=""):
             newTry = attempt + chr(x)
             bruteForceSHA256Hash(size - 1, newTry)
 
-# Prompt user for the attack method
-method = input("Select attack method (1 for brute force, 2 for dictionary, 3 for MD5 hash, 4 for SHA-256 hash, 5 for Bcrypt hash): ")
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python3 passwordCrack.py [plaintext password or hash] [argument]")
+        sys.exit(1)
 
-# Perform the selected attack method
-if method == "1":
-    # Brute-force attack
-    for i in range(1, 99):
-        bruteForce(i)
-elif method == "2":
-    # Dictionary attack
-    dictionary_files = ["dictionary1.txt", "dictionary2.txt", "dictionary3.txt"]
-    dictionaryAttack(dictionary_files)
-    print("Password not found in any of the dictionaries. Switching to brute force attack.")
-    for i in range(1, 99):
-        bruteForce(i)
-elif method == "3":
-    # MD5 hash brute-force attack
-    for i in range(1, 99):
-        bruteForceMD5Hash(i)
-elif method == "4":
-    # SHA-256 hash brute-force attack
-    for i in range(1, 99):
-        bruteForceSHA256Hash(i)
-elif method == "5":
-    # Bcrypt hash brute-force attack
-    for i in range(1, 99):
-        bruteForceBcrypt(i)
-else:
-    print("Invalid choice.")
+    password = sys.argv[1]
+    method = sys.argv[2]
+
+    if method == "-p":
+        # Brute-force attack
+        for i in range(1, 99):
+            bruteForce(i)
+    elif method == "-d":
+        # Dictionary attack
+        dictionary_files = ["dictionary1.txt", "dictionary2.txt", "dictionary3.txt"]
+        dictionaryAttack(dictionary_files)
+        print("Password not found in any of the dictionaries. Switching to brute force attack.")
+        for i in range(1, 99):
+            bruteForce(i)
+    elif method == "-m":
+        # MD5 hash brute-force attack
+        for i in range(1, 99):
+            bruteForceMD5Hash(i)
+    elif method == "-s":
+        # SHA-256 hash brute-force attack
+        for i in range(1, 99):
+            bruteForceSHA256Hash(i)
+    elif method == "-b":
+        # Bcrypt hash brute-force attack
+        for i in range(1, 99):
+            bruteForceBcrypt(i)
+    else:
+        print("Invalid choice.")
