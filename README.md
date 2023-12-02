@@ -8,8 +8,8 @@ Group: Minasha Gunarathna and Chris Wang
 
 Download the repository, open a terminal in the directory of the downloaded repo, and run `python3 passwordCrack.py [password or hash] [argument]`.
 
-Replace [password or hash] above with the plaintext password or MD5/SHA-256/Bcrypt hash you would like to crack.
-Then replace [argument] with the type of password cracking you would like the program to use. The arguments are `-p` for plaintext brute-force, `-d` for dictionary, `-m` for MD5, `-s` for SHA-256, and `-b` for Bcrypt.
+Replace `[password or hash]` above with the plaintext password or MD5/SHA-256/Bcrypt hash you would like to crack.
+Then replace `[argument]` with the type of password cracking you would like the program to use. The arguments are `-p` for plaintext brute-force, `-d` for dictionary, `-m` for MD5, `-s` for SHA-256, and `-b` for Bcrypt.
 
 ## Warning
 
