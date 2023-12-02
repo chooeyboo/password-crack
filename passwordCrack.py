@@ -1,7 +1,7 @@
 import hashlib
 import bcrypt
 
-password = input("Give password: ")
+password = input("Enter a plaintext password, MD5 hash, SHA-256 hash, or Bcrypt hash: ")
 crack = ""
 count = 0
 
