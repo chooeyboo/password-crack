@@ -27,7 +27,7 @@ Since all methods except dictionary are based on brute-force, any password that 
 > In the top right, under the green "Code" button, click on the number of commits to the project to see regular usage of Git.
 
 - [x] (4) Able to load dataset of top 10K most common passwords
-> The files `dictionary1.txt`, `dictionary2.txt` and `dictionary3.txt` collectively contain over one million common passwords.
+> The files `dictionary1.txt`, `dictionary2.txt` and `dictionary3.txt` collectively contain over 14 million common passwords.
 
 - [x] (10) Implement brute force password cracking
 
