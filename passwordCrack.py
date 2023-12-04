@@ -41,15 +41,15 @@ def dictionaryAttack(dictionary_files):
 
 
 def bruteForceBcrypt(pwd):
-    counter = 0 #counter for how many tries it takes
-    for length in range(1, 999): #tries all lengths from 1 to max
-        for comb in itertools.product(alpha, repeat=length): #tries all the combinations of the ascii letters
+    counter = 0
+    for length in range(1, 999): 
+        for comb in itertools.product(alpha, repeat=length):
             target = "".join(comb)
             counter += 1
             encodeTarget = target.encode('utf-8') 
-            if (bcrypt.checkpw(encodeTarget, pwd.encode('utf-8'))): #compare guess to the hash using bcrypt 
-                print("Password found: " + target + " took " + str(counter) + " tries")
-                sys.exit() #when password is found kill the program
+            if (bcrypt.checkpw(encodeTarget, pwd.encode('utf-8'))):
+                print("Cracked password: " + target + " in " + str(counter) + " tries")
+                sys.exit()
 
 
 # Function for MD5 hash brute-force attack
@@ -114,4 +114,4 @@ if __name__ == "__main__":
         # Bcrypt hash brute-force attack
         bruteForceBcrypt(password)
     else:
-        print("Invalid choice.")
+        print("Invalid choice. Use -p for plaintext brute force, -d for dictionary attack, -m for MD5 hash cracking, -s for SHA-256 hash cracking, and -b for Bcrypt hash cracking.")
