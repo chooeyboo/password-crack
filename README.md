@@ -79,5 +79,4 @@ If no match is found, it recursively generates new attempts by appending charact
 The logic is the same as for SHA-256, but it calculates the MD5 hash instead.
 
 ### Bcrypt Hash Cracking
-In this case, the Bcrypt library is used to hash the current attempt, and it checks if the hashed attempt matches the provided Bcrypt hash (password).
-Note that Bcrypt uses salts, so `bcrypt.gensalt()` generates a new salt for each attempt. This is generally very slow because of the use of salting in Bcrypt hashes.
+The function uses a brute-force approach by systematically trying all possible combinations of ASCII letters for different lengths until it finds a match with the given hashed password. The function utilizes the bcrypt.checkpw function to compare each generated password candidate with the hashed password. 
