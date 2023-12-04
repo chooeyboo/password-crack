@@ -1,9 +1,12 @@
 import sys
 import hashlib
 import bcrypt
+import itertools
+import string
 
 password = ""
 count = 0
+alpha = string.printable
 
 # Function for brute-force attack
 def bruteForce(size, attempt=""):
@@ -36,20 +39,18 @@ def dictionaryAttack(dictionary_files):
                 print(count, " tries")
                 exit()
 
-def bruteForceBcrypt(size, attempt=""):
-    global count
-    if size == 0:
-        hashed_attempt = bcrypt.hashpw(attempt.encode(), bcrypt.gensalt())
-        if hashed_attempt.decode() == password:
-            crack = attempt
-            print("Cracked password: " + crack)
-            print(count, " tries")
-            exit()
-    else:
-        for x in range(32, 127):
-            count += 1
-            newTry = attempt + chr(x)
-            bruteForceBcrypt(size - 1, newTry)
+
+def bruteForceBcrypt(pwd):
+    counter = 0 #counter for how many tries it takes
+    for length in range(1, 999): #tries all lengths from 1 to max
+        for comb in itertools.product(alpha, repeat=length): #tries all the combinations of the ascii letters
+            target = "".join(comb)
+            counter += 1
+            encodeTarget = target.encode('utf-8') 
+            if (bcrypt.checkpw(encodeTarget, pwd.encode('utf-8'))): #compare guess to the hash using bcrypt 
+                print("Password found: " + target + " took " + str(counter) + " tries")
+                sys.exit() #when password is found kill the program
+
 
 # Function for MD5 hash brute-force attack
 def bruteForceMD5Hash(size, attempt=""):
@@ -111,7 +112,6 @@ if __name__ == "__main__":
             bruteForceSHA256Hash(i)
     elif method == "-b":
         # Bcrypt hash brute-force attack
-        for i in range(1, 99):
-            bruteForceBcrypt(i)
+        bruteForceBcrypt(password)
     else:
         print("Invalid choice.")
