@@ -19,7 +19,7 @@ For MD5, SHA-256, or Bcrypt hashes, the program will take the hash and output th
 
 ## Warning
 
-Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt will especially take a long time, with any character length, since Bcrypt uses salting.
+Since all methods except dictionary are based on brute-force, any password that is longer than 4 characters can take a long time. Bcrypt cracking will only work in the Anaconda Spyder IDE.
 
 ## Rubric
 
